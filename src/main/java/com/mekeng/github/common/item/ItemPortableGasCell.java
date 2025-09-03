@@ -78,7 +78,7 @@ public class ItemPortableGasCell extends AEBasePoweredItem implements IStorageCe
 
     @Override
     public int getTotalTypes(@Nonnull final ItemStack cellItem) {
-        return 5;
+        return 15;
     }
 
     @Override
