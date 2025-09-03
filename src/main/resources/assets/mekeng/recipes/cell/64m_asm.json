@@ -1,0 +1,8 @@
+{
+  "type": "forge:ore_shapeless",
+  "result": { "item": "mekeng:gas_cell_64m" },
+  "ingredients": [
+    { "type": "appliedenergistics2:part", "part": "material.empty_storage_cell" },
+    { "item": "mekeng:gas_core_64m" }
+  ]
+}
