@@ -8,6 +8,7 @@ import com.mekeng.github.common.item.ItemGasCell;
 import com.mekeng.github.common.item.ItemMkEPart;
 import com.mekeng.github.common.item.ItemNormal;
 import com.mekeng.github.common.item.ItemPortableGasCell;
+import com.mekeng.github.common.item.ItemGasCellExt;
 import com.mekeng.github.common.item.ItemWirelessGasTerminal;
 import com.mekeng.github.common.part.PartGasExportBus;
 import com.mekeng.github.common.part.PartGasImportBus;
@@ -94,15 +95,17 @@ public class ItemAndBlocks {
         regHandler.item("gas_cell_16k", GAS_CELL_16k = new ItemGasCell(GAS_CELL_CORE_16k, casing, 16, 1.5, 128));
         regHandler.item("gas_cell_64k", GAS_CELL_64k = new ItemGasCell(GAS_CELL_CORE_64k, casing, 64, 2.0, 512));
     // Extended tiers
-    regHandler.item("gas_cell_256k", GAS_CELL_256k = new ItemGasCell(GAS_CELL_CORE_256k, casing, 256, 2.5, 2048));
-    regHandler.item("gas_cell_1m", GAS_CELL_1m = new ItemGasCell(GAS_CELL_CORE_1m, casing, 1024, 3.0, 8192));
-    regHandler.item("gas_cell_4m", GAS_CELL_4m = new ItemGasCell(GAS_CELL_CORE_4m, casing, 4096, 3.5, 32768));
-    regHandler.item("gas_cell_16m", GAS_CELL_16m = new ItemGasCell(GAS_CELL_CORE_16m, casing, 16384, 4.0, 131072));
-    regHandler.item("gas_cell_64m", GAS_CELL_64m = new ItemGasCell(GAS_CELL_CORE_64m, casing, 65536, 4.5, 524288));
-    regHandler.item("gas_cell_256m", GAS_CELL_256m = new ItemGasCell(GAS_CELL_CORE_256m, casing, 262144, 5.0, 2097152));
-    regHandler.item("gas_cell_1g", GAS_CELL_1g = new ItemGasCell(GAS_CELL_CORE_1g, casing, 1048576, 5.5, 8388608));
+    // Keep perType within safe range to avoid overflow/clamping in AE2 internals
+    final int SAFE_PER_TYPE = 512;
+    regHandler.item("gas_cell_256k", GAS_CELL_256k = new ItemGasCellExt(GAS_CELL_CORE_256k, casing, 256, 2.5, SAFE_PER_TYPE));
+    regHandler.item("gas_cell_1m", GAS_CELL_1m = new ItemGasCellExt(GAS_CELL_CORE_1m, casing, 1024, 3.0, SAFE_PER_TYPE));
+    regHandler.item("gas_cell_4m", GAS_CELL_4m = new ItemGasCellExt(GAS_CELL_CORE_4m, casing, 4096, 3.5, SAFE_PER_TYPE));
+    regHandler.item("gas_cell_16m", GAS_CELL_16m = new ItemGasCellExt(GAS_CELL_CORE_16m, casing, 16384, 4.0, SAFE_PER_TYPE));
+    regHandler.item("gas_cell_64m", GAS_CELL_64m = new ItemGasCellExt(GAS_CELL_CORE_64m, casing, 65536, 4.5, SAFE_PER_TYPE));
+    regHandler.item("gas_cell_256m", GAS_CELL_256m = new ItemGasCellExt(GAS_CELL_CORE_256m, casing, 262144, 5.0, SAFE_PER_TYPE));
+    regHandler.item("gas_cell_1g", GAS_CELL_1g = new ItemGasCellExt(GAS_CELL_CORE_1g, casing, 1048576, 5.5, SAFE_PER_TYPE));
     // 2g exact would overflow int bytes; cap to max-safe kilobytes (2,097,151 kB)
-    regHandler.item("gas_cell_2g", GAS_CELL_2g = new ItemGasCell(GAS_CELL_CORE_2g, casing, 2097151, 6.0, 16777216));
+    regHandler.item("gas_cell_2g", GAS_CELL_2g = new ItemGasCellExt(GAS_CELL_CORE_2g, casing, 2097151, 6.0, SAFE_PER_TYPE));
         regHandler.item("portable_gas_cell", PORTABLE_GAS_CELL = new ItemPortableGasCell());
         regHandler.item("gas_terminal", GAS_TERMINAL = new ItemMkEPart<>(PartGasTerminal::new));
         regHandler.item("gas_import_bus", GAS_IMPORT_BUS = new ItemMkEPart<>(PartGasImportBus::new));

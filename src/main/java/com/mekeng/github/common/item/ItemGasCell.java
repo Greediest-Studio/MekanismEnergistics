@@ -5,7 +5,7 @@ import appeng.api.config.FuzzyMode;
 import appeng.api.implementations.items.IItemGroup;
 import appeng.api.implementations.items.IStorageCell;
 import appeng.api.implementations.items.IUpgradeModule;
-import appeng.api.storage.IMEInventoryHandler;
+import appeng.api.storage.ICellInventoryHandler;
 import appeng.api.storage.IStorageChannel;
 import appeng.api.storage.data.IItemList;
 import appeng.core.AEConfig;
@@ -74,7 +74,7 @@ public class ItemGasCell extends AEBaseItem implements IStorageCell<IAEGasStack>
 
     @SideOnly(Side.CLIENT)
     public void addCheckedInformation(ItemStack stack, World world, List<String> lines, ITooltipFlag advancedTooltips) {
-        GasCellInfo.addCellInformation(AEApi.instance().registries().cell().getCellInventory(stack, null, this.getChannel()), lines);
+    GasCellInfo.addCellInformation(AEApi.instance().registries().cell().getCellInventory(stack, null, this.getChannel()), lines);
     }
 
     @Nonnull
@@ -160,7 +160,7 @@ public class ItemGasCell extends AEBaseItem implements IStorageCell<IAEGasStack>
                 return false;
             }
             InventoryPlayer playerInventory = player.inventory;
-            IMEInventoryHandler<IAEGasStack> inv = AEApi.instance().registries().cell().getCellInventory(stack, null, this.getChannel());
+            ICellInventoryHandler<IAEGasStack> inv = AEApi.instance().registries().cell().getCellInventory(stack, null, this.getChannel());
             if (inv != null && playerInventory.getCurrentItem() == stack) {
                 InventoryAdaptor ia = InventoryAdaptor.getAdaptor(player);
                 IItemList<IAEGasStack> list = inv.getAvailableItems(this.getChannel().createList());

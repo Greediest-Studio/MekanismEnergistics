@@ -70,6 +70,23 @@ public class CommonProxy {
         Upgrades.STICKY.registerItem(new ItemStack(ItemAndBlocks.GAS_CELL_16k), 1);
         Upgrades.INVERTER.registerItem(new ItemStack(ItemAndBlocks.GAS_CELL_64k), 1);
         Upgrades.STICKY.registerItem(new ItemStack(ItemAndBlocks.GAS_CELL_64k), 1);
+    // Register upgrades for extended tiers as well
+    Upgrades.INVERTER.registerItem(new ItemStack(ItemAndBlocks.GAS_CELL_256k), 1);
+    Upgrades.STICKY.registerItem(new ItemStack(ItemAndBlocks.GAS_CELL_256k), 1);
+    Upgrades.INVERTER.registerItem(new ItemStack(ItemAndBlocks.GAS_CELL_1m), 1);
+    Upgrades.STICKY.registerItem(new ItemStack(ItemAndBlocks.GAS_CELL_1m), 1);
+    Upgrades.INVERTER.registerItem(new ItemStack(ItemAndBlocks.GAS_CELL_4m), 1);
+    Upgrades.STICKY.registerItem(new ItemStack(ItemAndBlocks.GAS_CELL_4m), 1);
+    Upgrades.INVERTER.registerItem(new ItemStack(ItemAndBlocks.GAS_CELL_16m), 1);
+    Upgrades.STICKY.registerItem(new ItemStack(ItemAndBlocks.GAS_CELL_16m), 1);
+    Upgrades.INVERTER.registerItem(new ItemStack(ItemAndBlocks.GAS_CELL_64m), 1);
+    Upgrades.STICKY.registerItem(new ItemStack(ItemAndBlocks.GAS_CELL_64m), 1);
+    Upgrades.INVERTER.registerItem(new ItemStack(ItemAndBlocks.GAS_CELL_256m), 1);
+    Upgrades.STICKY.registerItem(new ItemStack(ItemAndBlocks.GAS_CELL_256m), 1);
+    Upgrades.INVERTER.registerItem(new ItemStack(ItemAndBlocks.GAS_CELL_1g), 1);
+    Upgrades.STICKY.registerItem(new ItemStack(ItemAndBlocks.GAS_CELL_1g), 1);
+    Upgrades.INVERTER.registerItem(new ItemStack(ItemAndBlocks.GAS_CELL_2g), 1);
+    Upgrades.STICKY.registerItem(new ItemStack(ItemAndBlocks.GAS_CELL_2g), 1);
         Upgrades.INVERTER.registerItem(new ItemStack(ItemAndBlocks.PORTABLE_GAS_CELL), 1);
         Upgrades.STICKY.registerItem(new ItemStack(ItemAndBlocks.PORTABLE_GAS_CELL), 1);
         Upgrades.CAPACITY.registerItem(new ItemStack(ItemAndBlocks.GAS_IMPORT_BUS), 2);
